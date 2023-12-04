@@ -1,0 +1,16 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="django.contribimport" />
+          <option value="laba_1.main.*" />
+          <option value="sys.stdoutn" />
+          <option value="loader.dp" />
+          <option value="loader.my_router" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
