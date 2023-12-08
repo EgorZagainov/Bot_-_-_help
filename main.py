@@ -6,7 +6,7 @@ import sys
 from aiogram import Bot, Dispatcher
 from aiogram.enums import ParseMode
 from config import TOKEN
-from handlear import start, add_notes_bot, all_note_inline
+from handlers import start, add_notes_bot, all_note_inline, del_note_bot
 
 
 async def main() -> None:
@@ -15,7 +15,8 @@ async def main() -> None:
     dp.include_routers(
         start.router_start,
         add_notes_bot.router_add_note,
-        all_note_inline.router_all_note
+        all_note_inline.router_all_note,
+        del_note_bot.router_delete_note
 
 
     )

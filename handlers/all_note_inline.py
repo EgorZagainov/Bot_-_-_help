@@ -3,7 +3,7 @@ from aiogram.filters import Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 
-from add_notes_bot import ADD_NOTE
+from handlers.add_notes_bot import ADD_NOTE
 
 
 
@@ -22,6 +22,6 @@ async def cmd_inline_url(message: types.Message, bot: Bot):
         )
 
     await message.answer(
-        'Выберите ссылку', reply_markup=builder.as_markup(),
+        'Все задачи', reply_markup=builder.as_markup(),
     )
 
