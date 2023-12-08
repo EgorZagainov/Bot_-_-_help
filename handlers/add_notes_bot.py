@@ -31,6 +31,7 @@ async def cmd_robot(message: Message, state: FSMContext):
         text="Какую задачу вы хотите создать:",
     )
     await state.set_state(Note.add_note)
+    await ADD_NOTE.clear()
 
 
 
@@ -41,6 +42,8 @@ async def color_chosen(message: Message, state: FSMContext):
         text="Через сколько наоменить о задаче:",
     )
     await state.set_state(Note.time_note)
+    await TIME_NOTE.clear()
+
 
 
 

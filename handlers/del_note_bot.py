@@ -9,7 +9,7 @@ router_delete_note = Router()
 
 
 
-@router_delete_note.message(Command("del_note"))
+@router_delete_note.message(Command("delete_note"))
 async def cmd_inline(message: types.Message, bot: Bot):
     builder = InlineKeyboardBuilder()
     builder.row(types.InlineKeyboardButton(
