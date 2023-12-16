@@ -1,14 +1,9 @@
 import asyncio
-import time
-from aiogram import types, Router, F
-from aiogram.filters import CommandStart, Command, StateFilter
+from aiogram import Router
+from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
-from aiogram.types import Message, ReplyKeyboardRemove, KeyboardButton, ReplyKeyboardMarkup
-from aiogram.utils.markdown import hbold
-
-
-
+from aiogram.types import Message
 
 router_add_note = Router()
 
@@ -31,7 +26,6 @@ async def cmd_robot(message: Message, state: FSMContext):
         text="Какую задачу вы хотите создать:",
     )
     await state.set_state(Note.add_note)
-    await ADD_NOTE.clear()
 
 
 
@@ -39,10 +33,10 @@ async def cmd_robot(message: Message, state: FSMContext):
 async def color_chosen(message: Message, state: FSMContext):
     await state.update_data(ADD_NOTE.append(message.text.lower()))
     await message.answer(
-        text="Через сколько наоменить о задаче:",
+        text="Через сколько напомнить о задаче:",
     )
     await state.set_state(Note.time_note)
-    await TIME_NOTE.clear()
+
 
 
 
@@ -54,6 +48,7 @@ async def function_chosen(message: Message, state: FSMContext):
     await message.answer(
         f"Хорошо вы  создали задачу для {*ADD_NOTE,}\n"
         f"Напоменание сработает через {*TIME_NOTE,} секунд")
+    await TIME_NOTE.clear()
     sleep = 0
     b = (TIME_NOTE[-1])
     a = TIME_NOTE.index(b)
@@ -63,7 +58,7 @@ async def function_chosen(message: Message, state: FSMContext):
         await asyncio.sleep(1)
         sleep = sleep+1
     else:
-        await message.answer(f"Пора {*ADD_NOTE,}")
+        await message.answer(f" {*ADD_NOTE,} is running")
 
     await state.clear()
 
