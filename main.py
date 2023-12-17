@@ -8,6 +8,7 @@ from aiogram.enums import ParseMode
 
 
 from config import TOKEN
+from db import sqlite3_bot
 from handlers import start, add_notes_bot, all_note_inline, del_note_bot, admin, inline
 
 
@@ -21,6 +22,7 @@ async def main() -> None:
         del_note_bot.router_delete_note,
         admin.router_admin,
         inline.router_inline,
+        sqlite3_bot.router_sqlite3
     )
 
     await dp.start_polling(bot)
